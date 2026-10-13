@@ -85,9 +85,9 @@ DIVIDE(
 )
 
 Delivery Time Mins = 
-VAR OrderSec = HOUR(RELATED('fooddelivery orders'[order_time]))*3600 
-             + MINUTE(RELATED('fooddelivery orders'[order_time]))*60 
-             + SECOND(RELATED('fooddelivery orders'[order_time]))
+VAR OrderSec = HOUR(('fooddelivery orders'[order_time]))*3600 
+             + MINUTE(('fooddelivery orders'[order_time]))*60 
+             + SECOND(('fooddelivery orders'[order_time]))
 VAR DeliverySec = HOUR('fooddelivery deliveries'[delivery_time])*3600 
                 + MINUTE('fooddelivery deliveries'[delivery_time])*60 
                 + SECOND('fooddelivery deliveries'[delivery_time])
