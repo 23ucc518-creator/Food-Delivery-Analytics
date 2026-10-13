@@ -84,9 +84,9 @@ Riders 8, 6, 7, 5, and 13 have the highest failure rates (8.83%–10.96%), all a
  
 ```sql
 SELECT r.restaurant_name,
-COUNT() AS total_orders,
+COUNT(*) AS total_orders,
 SUM(CASE WHEN o.order_status = 'Not Fulfilled' THEN 1 ELSE 0 END) AS not_fulfilled_count,
-ROUND(SUM(CASE WHEN o.order_status = 'Not Fulfilled' THEN 1 ELSE 0 END) * 100.0 / COUNT(), 2) AS not_fulfilled_pct
+ROUND(SUM(CASE WHEN o.order_status = 'Not Fulfilled' THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS not_fulfilled_pct
 FROM orders o
 JOIN restaurants r ON o.restaurant_id = r.restaurant_id
 GROUP BY r.restaurant_name
